@@ -1138,29 +1138,26 @@ static void engage_z_probe() {
     #else // Deploy the Z probe, most likely by touching one of the arms, no servo needed.
 
     #if defined(TOUCH_PROBE_DEPLOY_1_X) && defined(TOUCH_PROBE_DEPLOY_1_Y) && defined(TOUCH_PROBE_DEPLOY_1_Z)
-      // @todo ex-nerd: adjust feedrate based on X, Y, or Z axis?  Which one?
-      feedrate = homing_feedrate[X_AXIS]/2;
       destination[X_AXIS] = TOUCH_PROBE_DEPLOY_1_X;
       destination[Y_AXIS] = TOUCH_PROBE_DEPLOY_1_Y;
       destination[Z_AXIS] = TOUCH_PROBE_DEPLOY_1_Z;
+      feedrate = TOUCH_PROBE_DEPLOY_1_FEEDRATE;
       prepare_move_raw();
     #endif
 
     #if defined(TOUCH_PROBE_DEPLOY_2_X) && defined(TOUCH_PROBE_DEPLOY_2_Y) && defined(TOUCH_PROBE_DEPLOY_2_Z)
-      // @todo ex-nerd: adjust feedrate based on X, Y, or Z axis?  Which one?
-      feedrate = homing_feedrate[X_AXIS]/2;
       destination[X_AXIS] = TOUCH_PROBE_DEPLOY_2_X;
       destination[Y_AXIS] = TOUCH_PROBE_DEPLOY_2_Y;
       destination[Z_AXIS] = TOUCH_PROBE_DEPLOY_2_Z;
+      feedrate = TOUCH_PROBE_DEPLOY_2_FEEDRATE;
       prepare_move_raw();
     #endif
 
     #if defined(TOUCH_PROBE_DEPLOY_3_X) && defined(TOUCH_PROBE_DEPLOY_3_Y) && defined(TOUCH_PROBE_DEPLOY_3_Z)
-      // @todo ex-nerd: adjust feedrate based on X, Y, or Z axis?  Which one?
-      feedrate = homing_feedrate[X_AXIS]/2;
       destination[X_AXIS] = TOUCH_PROBE_DEPLOY_3_X;
       destination[Y_AXIS] = TOUCH_PROBE_DEPLOY_3_Y;
       destination[Z_AXIS] = TOUCH_PROBE_DEPLOY_3_Z;
+      feedrate = TOUCH_PROBE_DEPLOY_3_FEEDRATE;
       prepare_move_raw();
     #endif
 
@@ -1189,29 +1186,26 @@ static void retract_z_probe() {
     prepare_move_raw();
 
     #if defined(TOUCH_PROBE_RETRACT_1_X) && defined(TOUCH_PROBE_RETRACT_1_Y) && defined(TOUCH_PROBE_RETRACT_1_Z)
-      // @todo ex-nerd: adjust feedrate based on X, Y, or Z axis?  Which one?
-      feedrate = homing_feedrate[X_AXIS]/2;
       destination[X_AXIS] = TOUCH_PROBE_RETRACT_1_X;
       destination[Y_AXIS] = TOUCH_PROBE_RETRACT_1_Y;
       destination[Z_AXIS] = TOUCH_PROBE_RETRACT_1_Z;
+      feedrate = TOUCH_PROBE_RETRACT_1_FEEDRATE;
       prepare_move_raw();
     #endif
 
     #if defined(TOUCH_PROBE_RETRACT_2_X) && defined(TOUCH_PROBE_RETRACT_2_Y) && defined(TOUCH_PROBE_RETRACT_2_Z)
-      // @todo ex-nerd: adjust feedrate based on X, Y, or Z axis?  Which one?
-      feedrate = homing_feedrate[X_AXIS]/2;
       destination[X_AXIS] = TOUCH_PROBE_RETRACT_2_X;
       destination[Y_AXIS] = TOUCH_PROBE_RETRACT_2_Y;
       destination[Z_AXIS] = TOUCH_PROBE_RETRACT_2_Z;
+      feedrate = TOUCH_PROBE_RETRACT_2_FEEDRATE;
       prepare_move_raw();
     #endif
 
     #if defined(TOUCH_PROBE_RETRACT_3_X) && defined(TOUCH_PROBE_RETRACT_3_Y) && defined(TOUCH_PROBE_RETRACT_3_Z)
-      // @todo ex-nerd: adjust feedrate based on X, Y, or Z axis?  Which one?
-      feedrate = homing_feedrate[X_AXIS]/2;
       destination[X_AXIS] = TOUCH_PROBE_RETRACT_3_X;
       destination[Y_AXIS] = TOUCH_PROBE_RETRACT_3_Y;
       destination[Z_AXIS] = TOUCH_PROBE_RETRACT_3_Z;
+      feedrate = TOUCH_PROBE_RETRACT_3_FEEDRATE;
       prepare_move_raw();
     #endif
 

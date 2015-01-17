@@ -435,46 +435,55 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
     // Up to 3 sets of coordinates for deploying and retracting the spring loaded touch probe on G29,
     // if servo actuated touch probe is not defined. Uncomment as appropriate for your printer/probe.
 
-    // @todo add TOUCH_PROBE_DEPLOY_1_FEEDRATE (and so forth) config?
-
     // Kossel Mini
     //#define TOUCH_PROBE_DEPLOY_1_X 35.0
     //#define TOUCH_PROBE_DEPLOY_1_Y 72.0
     //#define TOUCH_PROBE_DEPLOY_1_Z 100.0
+    //#define TOUCH_PROBE_DEPLOY_2_FEEDRATE  (200*60/10) // HOMING_FEEDRATE[X_AXIS]
     //#define TOUCH_PROBE_DEPLOY_2_X 0.0
     //#define TOUCH_PROBE_DEPLOY_2_Y 0.0
     //#define TOUCH_PROBE_DEPLOY_2_Z 100.0
+    //#define TOUCH_PROBE_DEPLOY_2_FEEDRATE (200*60/10) // HOMING_FEEDRATE[X_AXIS]/10
 
-    //#define TOUCH_PROBE_RETRACT_1_X -46.0
+    //#define TOUCH_PROBE_RETRACT_1_X -46.0 // Move the probe into position
     //#define TOUCH_PROBE_RETRACT_1_Y 59.0
     //#define TOUCH_PROBE_RETRACT_1_Z 28.0
-    //#define TOUCH_PROBE_RETRACT_2_X -46.0
+    //#define TOUCH_PROBE_RETRACT_1_FEEDRATE (200*60) // HOMING_FEEDRATE[X_AXIS]
+    //#define TOUCH_PROBE_RETRACT_2_X -46.0 // Move the nozzle down further to push the probe into retracted position.
     //#define TOUCH_PROBE_RETRACT_2_Y 59.0
     //#define TOUCH_PROBE_RETRACT_2_Z 8.0
-    //#define TOUCH_PROBE_RETRACT_3_X -46.0
+    //#define TOUCH_PROBE_RETRACT_2_FEEDRATE (200*60/10) // HOMING_FEEDRATE[Z_AXIS]/10
+    //#define TOUCH_PROBE_RETRACT_3_X -46.0 // Raise things back up slightly so we don't bump into anything
     //#define TOUCH_PROBE_RETRACT_3_Y 59.0
     //#define TOUCH_PROBE_RETRACT_3_Z 38.0
+    //#define TOUCH_PROBE_RETRACT_3_FEEDRATE  (200*60) // HOMING_FEEDRATE[Z_AXIS]
 
     // Kossel Pro
     #define TOUCH_PROBE_DEPLOY_1_X -110.00 // Move toward the X vertex so we can hook the probe deploy pin on an arm
     #define TOUCH_PROBE_DEPLOY_1_Y 0.00
     #define TOUCH_PROBE_DEPLOY_1_Z 100.0
+    #define TOUCH_PROBE_DEPLOY_1_FEEDRATE (200*60/2) // wish we could do HOMING_FEEDRATE[X_AXIS]/2
     #define TOUCH_PROBE_DEPLOY_2_X -110.00 // Move outward so the deploy pin is pulled by the arm and the probe is deployed
     #define TOUCH_PROBE_DEPLOY_2_Y -125.00
     #define TOUCH_PROBE_DEPLOY_2_Z 100.0
+    #define TOUCH_PROBE_DEPLOY_2_FEEDRATE (200*60/2)
     #define TOUCH_PROBE_DEPLOY_3_X 45.00 // Not actually sure what this does...
     #define TOUCH_PROBE_DEPLOY_3_Y -125.00
     #define TOUCH_PROBE_DEPLOY_3_Z 100.0
+    #define TOUCH_PROBE_DEPLOY_3_FEEDRATE (200*60/2)
 
     #define TOUCH_PROBE_RETRACT_1_X 36.00
     #define TOUCH_PROBE_RETRACT_1_Y -122.00
     #define TOUCH_PROBE_RETRACT_1_Z50.0
+    #define TOUCH_PROBE_RETRACT_1_FEEDRATE (200*60/2)
     #define TOUCH_PROBE_RETRACT_2_X 36.00
     #define TOUCH_PROBE_RETRACT_2_Y -122.00
     #define TOUCH_PROBE_RETRACT_2_Z 18.0
+    #define TOUCH_PROBE_RETRACT_2_FEEDRATE (200*60/2)
     #define TOUCH_PROBE_RETRACT_3_X 0.0
     #define TOUCH_PROBE_RETRACT_3_Y 0.0
     #define TOUCH_PROBE_RETRACT_3_Z 100.0
+    #define TOUCH_PROBE_RETRACT_3_FEEDRATE (200*60/2)
 
   #else  // not AUTO_BED_LEVELING_GRID
     // with no grid, just probe 3 arbitrary points.  A simple cross-product
@@ -509,11 +518,11 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
   //The value is the delay to turn the servo off after powered on - depends on the servo speed; 300ms is good value, but you can try lower it.
   // You MUST HAVE the SERVO_ENDSTOPS defined to use here a value higher than zero otherwise your code will not compile.
 
-//  #define PROBE_SERVO_DEACTIVATION_DELAY 300
+  //#define PROBE_SERVO_DEACTIVATION_DELAY 300
 
 
-//If you have enabled the Bed Auto Leveling and are using the same Z Probe for Z Homing,
-//it is highly recommended you let this Z_SAFE_HOMING enabled!!!
+  //If you have enabled the Bed Auto Leveling and are using the same Z Probe for Z Homing,
+  //it is highly recommended you let this Z_SAFE_HOMING enabled!!!
 
   #define Z_SAFE_HOMING   // This feature is meant to avoid Z homing with probe outside the bed area.
                           // When defined, it will:
@@ -527,7 +536,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
     #define Z_SAFE_HOMING_X_POINT (X_MAX_LENGTH/2)    // X point for Z homing when homing all axis (G28)
     #define Z_SAFE_HOMING_Y_POINT (Y_MAX_LENGTH/2)    // Y point for Z homing when homing all axis (G28)
 
-  #endif
+  #endif // Z_SAFE_HOMING
 
 #endif // ENABLE_AUTO_BED_LEVELING
 
