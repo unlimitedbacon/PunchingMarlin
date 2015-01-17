@@ -432,6 +432,20 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
     // Works best with AUTO_BED_LEVELING_GRID_POINTS 5 or higher.
     #define NONLINEAR_BED_LEVELING
 
+    // kossel mini
+    //const float TOUCH_PROBE_DEPLOY_1[] = {35.00, 72.00, 100.0, 0.0} ; // This is the first point that the touch probe moves to to start the deployment, on G29, if servo actuated touch probe is not defined
+    //const float TOUCH_PROBE_DEPLOY_2[] = {0.00, 0.00, 100.0, 0.0} ;// This is the second point that the end effector moves to deploy the probe
+    //const float TOUCH_PROBE_DEPLOY_3[] = {0.00, 0.00, 100.0, 0.0} ; // The third point is unused on the Mini
+
+    // ttstam:  These are coordinates for deploying and retracting the spring loaded touch probe.  Added for OpenBeam Kossel's integrated end effector
+    const float TOUCH_PROBE_DEPLOY_1[] = {-110.00, 0.00, 100.0, 0.0} ; // This is the first point that the touch probe moves to to start the deployment, on G29, if servo actuated touch probe is not defined
+    const float TOUCH_PROBE_DEPLOY_2[] = {-110.00, -125.00, 100.0, 0.0} ;// This is the second point that the end effector moves to deploy the probe
+    const float TOUCH_PROBE_DEPLOY_3[] = {45.00, -125.00, 100.0, 0.0} ;// This is the third point that the end effector moves to deploy the probe (such as retracting off the belt, etc.
+
+    const float TOUCH_PROBE_RETRACT_1[] = {36.00, -122.00 , 50.0, 0.0} ;// This is the first point that the touch probe moves to retract the probe
+    const float TOUCH_PROBE_RETRACT_2[] = {36.00, -122.00, 18.0, 0.0} ;// This is the second point that the end effector moves to retract the probe
+    const float TOUCH_PROBE_RETRACT_3[] = {0.0, 0.0, 100.0, 0.0} ;// This is the third point that the end effector moves to retract the probe
+
   #else  // not AUTO_BED_LEVELING_GRID
     // with no grid, just probe 3 arbitrary points.  A simple cross-product
     // is used to esimate the plane of the print bed
@@ -442,15 +456,6 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
       #define ABL_PROBE_PT_2_Y 20
       #define ABL_PROBE_PT_3_X 170
       #define ABL_PROBE_PT_3_Y 20
-
-    // ttstam:  These are coordinates for deploying and retracting the spring loaded touch probe.  Added for OpenBeam Kossel's integrated end effector
-      const float TOUCH_PROBE_DEPLOY_1[] = {-110.00, 0.00, 100.0, 0.0} ; // This is the first point that the touch probe moves to to start the deployment, on G29, if servo actuated touch probe is not defined
-      const float TOUCH_PROBE_DEPLOY_2[] = {-110.00, -125.00, 100.0, 0.0} ;// This is the second point that the end effector moves to deploy the probe
-      const float TOUCH_PROBE_DEPLOY_3[] = {45.00, -125.00, 100.0, 0.0} ;// This is the third point that the end effector moves to deploy the probe (such as retracting off the belt, etc.
-
-      const float TOUCH_PROBE_RETRACT_1[] = {36.00, -122.00 , 50.0, 0.0} ;// This is the first point that the touch probe moves to retract the probe
-      const float TOUCH_PROBE_RETRACT_2[] = {36.00, -122.00, 18.0, 0.0} ;// This is the second point that the end effector moves to retract the probe
-      const float TOUCH_PROBE_RETRACT_3[] = {0.0, 0.0, 100.0, 0.0} ;// This is the third point that the end effector moves to retract the probe
 
   #endif // AUTO_BED_LEVELING_GRID
 

@@ -1135,16 +1135,7 @@ static void engage_z_probe() {
         servos[servo_endstops[Z_AXIS]].detach();
 #endif
     }
-    #else // Deploy the Z probe by touching the belt, no servo needed.
-    //feedrate = homing_feedrate[X_AXIS];
-    //destination[X_AXIS] = 35;
-    //destination[Y_AXIS] = 72;
-    //destination[Z_AXIS] = 100;
-    //prepare_move_raw();
-    //
-    //feedrate = homing_feedrate[X_AXIS]/10;
-    //destination[X_AXIS] = 0;
-    //prepare_move_raw();
+    #else // Deploy the Z probe, most likely by touching one of the by touching the belt, no servo needed.
 
     feedrate = homing_feedrate[X_AXIS]/2;
     destination[X_AXIS] = TOUCH_PROBE_DEPLOY_1[0];
