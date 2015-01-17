@@ -432,19 +432,49 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
     // Works best with AUTO_BED_LEVELING_GRID_POINTS 5 or higher.
     #define NONLINEAR_BED_LEVELING
 
-    // kossel mini
-    //const float TOUCH_PROBE_DEPLOY_1[] = {35.00, 72.00, 100.0, 0.0} ; // This is the first point that the touch probe moves to to start the deployment, on G29, if servo actuated touch probe is not defined
-    //const float TOUCH_PROBE_DEPLOY_2[] = {0.00, 0.00, 100.0, 0.0} ;// This is the second point that the end effector moves to deploy the probe
-    //const float TOUCH_PROBE_DEPLOY_3[] = {0.00, 0.00, 100.0, 0.0} ; // The third point is unused on the Mini
+    // Up to 3 sets of coordinates for deploying and retracting the spring loaded touch probe on G29,
+    // if servo actuated touch probe is not defined. Uncomment as appropriate for your printer/probe.
 
-    // ttstam:  These are coordinates for deploying and retracting the spring loaded touch probe.  Added for OpenBeam Kossel's integrated end effector
-    const float TOUCH_PROBE_DEPLOY_1[] = {-110.00, 0.00, 100.0, 0.0} ; // This is the first point that the touch probe moves to to start the deployment, on G29, if servo actuated touch probe is not defined
-    const float TOUCH_PROBE_DEPLOY_2[] = {-110.00, -125.00, 100.0, 0.0} ;// This is the second point that the end effector moves to deploy the probe
-    const float TOUCH_PROBE_DEPLOY_3[] = {45.00, -125.00, 100.0, 0.0} ;// This is the third point that the end effector moves to deploy the probe (such as retracting off the belt, etc.
+    // @todo add TOUCH_PROBE_DEPLOY_1_FEEDRATE (and so forth) config?
 
-    const float TOUCH_PROBE_RETRACT_1[] = {36.00, -122.00 , 50.0, 0.0} ;// This is the first point that the touch probe moves to retract the probe
-    const float TOUCH_PROBE_RETRACT_2[] = {36.00, -122.00, 18.0, 0.0} ;// This is the second point that the end effector moves to retract the probe
-    const float TOUCH_PROBE_RETRACT_3[] = {0.0, 0.0, 100.0, 0.0} ;// This is the third point that the end effector moves to retract the probe
+    // Kossel Mini
+    //#define TOUCH_PROBE_DEPLOY_1_X 35.0
+    //#define TOUCH_PROBE_DEPLOY_1_Y 72.0
+    //#define TOUCH_PROBE_DEPLOY_1_Z 100.0
+    //#define TOUCH_PROBE_DEPLOY_2_X 0.0
+    //#define TOUCH_PROBE_DEPLOY_2_Y 0.0
+    //#define TOUCH_PROBE_DEPLOY_2_Z 100.0
+
+    //#define TOUCH_PROBE_RETRACT_1_X -46.0
+    //#define TOUCH_PROBE_RETRACT_1_Y 59.0
+    //#define TOUCH_PROBE_RETRACT_1_Z 28.0
+    //#define TOUCH_PROBE_RETRACT_2_X -46.0
+    //#define TOUCH_PROBE_RETRACT_2_Y 59.0
+    //#define TOUCH_PROBE_RETRACT_2_Z 8.0
+    //#define TOUCH_PROBE_RETRACT_3_X -46.0
+    //#define TOUCH_PROBE_RETRACT_3_Y 59.0
+    //#define TOUCH_PROBE_RETRACT_3_Z 38.0
+
+    // Kossel Pro
+    #define TOUCH_PROBE_DEPLOY_1_X -110.00 // Move toward the X vertex so we can hook the probe deploy pin on an arm
+    #define TOUCH_PROBE_DEPLOY_1_Y 0.00
+    #define TOUCH_PROBE_DEPLOY_1_Z 100.0
+    #define TOUCH_PROBE_DEPLOY_2_X -110.00 // Move outward so the deploy pin is pulled by the arm and the probe is deployed
+    #define TOUCH_PROBE_DEPLOY_2_Y -125.00
+    #define TOUCH_PROBE_DEPLOY_2_Z 100.0
+    #define TOUCH_PROBE_DEPLOY_3_X 45.00 // Not actually sure what this does...
+    #define TOUCH_PROBE_DEPLOY_3_Y -125.00
+    #define TOUCH_PROBE_DEPLOY_3_Z 100.0
+
+    #define TOUCH_PROBE_RETRACT_1_X 36.00
+    #define TOUCH_PROBE_RETRACT_1_Y -122.00
+    #define TOUCH_PROBE_RETRACT_1_Z50.0
+    #define TOUCH_PROBE_RETRACT_2_X 36.00
+    #define TOUCH_PROBE_RETRACT_2_Y -122.00
+    #define TOUCH_PROBE_RETRACT_2_Z 18.0
+    #define TOUCH_PROBE_RETRACT_3_X 0.0
+    #define TOUCH_PROBE_RETRACT_3_Y 0.0
+    #define TOUCH_PROBE_RETRACT_3_Z 100.0
 
   #else  // not AUTO_BED_LEVELING_GRID
     // with no grid, just probe 3 arbitrary points.  A simple cross-product
