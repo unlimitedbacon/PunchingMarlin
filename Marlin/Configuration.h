@@ -388,6 +388,26 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 #define X_MAX_LENGTH (X_MAX_POS - X_MIN_POS)
 #define Y_MAX_LENGTH (Y_MAX_POS - Y_MIN_POS)
 #define Z_MAX_LENGTH (Z_MAX_POS - Z_MIN_POS)
+
+// The position of the homing switches
+#define MANUAL_HOME_POSITIONS  // If defined, MANUAL_*_HOME_POS below will be used
+#define BED_CENTER_AT_0_0  // If defined, the center of the bed is at (X=0, Y=0)
+
+//Manual homing switch locations:
+// For deltabots this means top and center of the Cartesian print volume.
+#define MANUAL_X_HOME_POS 0
+#define MANUAL_Y_HOME_POS 0
+#define MANUAL_Z_HOME_POS 300  // For delta: Distance between nozzle and print surface after homing.
+
+//// MOVEMENT SETTINGS
+#define NUM_AXIS 4 // The axis order in all axis related arrays is X, Y, Z, E
+// set the homing speeds (mm/min)
+#define HOMING_FEEDRATE_X (200*60)
+#define HOMING_FEEDRATE_Y (200*60)
+#define HOMING_FEEDRATE_Z (200*60)
+#define HOMING_FEEDRATE_E 0
+#define HOMING_FEEDRATE {HOMING_FEEDRATE_X,HOMING_FEEDRATE_Y,HOMING_FEEDRATE_Z,HOMING_FEEDRATE_E}
+
 //============================= Bed Auto Leveling ===========================
 
 #define ENABLE_AUTO_BED_LEVELING // Delete the comment to enable (remove // at the start of the line)
@@ -439,51 +459,51 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
     //#define TOUCH_PROBE_DEPLOY_1_X 35.0
     //#define TOUCH_PROBE_DEPLOY_1_Y 72.0
     //#define TOUCH_PROBE_DEPLOY_1_Z 100.0
-    //#define TOUCH_PROBE_DEPLOY_2_FEEDRATE  (200*60/10) // HOMING_FEEDRATE[X_AXIS]
+    //#define TOUCH_PROBE_DEPLOY_2_FEEDRATE (HOMING_FEEDRATE_X/10)
     //#define TOUCH_PROBE_DEPLOY_2_X 0.0
     //#define TOUCH_PROBE_DEPLOY_2_Y 0.0
     //#define TOUCH_PROBE_DEPLOY_2_Z 100.0
-    //#define TOUCH_PROBE_DEPLOY_2_FEEDRATE (200*60/10) // HOMING_FEEDRATE[X_AXIS]/10
+    //#define TOUCH_PROBE_DEPLOY_2_FEEDRATE (HOMING_FEEDRATE_X/10)
 
     //#define TOUCH_PROBE_RETRACT_1_X -46.0 // Move the probe into position
     //#define TOUCH_PROBE_RETRACT_1_Y 59.0
     //#define TOUCH_PROBE_RETRACT_1_Z 28.0
-    //#define TOUCH_PROBE_RETRACT_1_FEEDRATE (200*60) // HOMING_FEEDRATE[X_AXIS]
+    //#define TOUCH_PROBE_RETRACT_1_FEEDRATE HOMING_FEEDRATE_X
     //#define TOUCH_PROBE_RETRACT_2_X -46.0 // Move the nozzle down further to push the probe into retracted position.
     //#define TOUCH_PROBE_RETRACT_2_Y 59.0
     //#define TOUCH_PROBE_RETRACT_2_Z 8.0
-    //#define TOUCH_PROBE_RETRACT_2_FEEDRATE (200*60/10) // HOMING_FEEDRATE[Z_AXIS]/10
+    //#define TOUCH_PROBE_RETRACT_2_FEEDRATE (HOMING_FEEDRATE_Z/10)
     //#define TOUCH_PROBE_RETRACT_3_X -46.0 // Raise things back up slightly so we don't bump into anything
     //#define TOUCH_PROBE_RETRACT_3_Y 59.0
     //#define TOUCH_PROBE_RETRACT_3_Z 38.0
-    //#define TOUCH_PROBE_RETRACT_3_FEEDRATE  (200*60) // HOMING_FEEDRATE[Z_AXIS]
+    //#define TOUCH_PROBE_RETRACT_3_FEEDRATE HOMING_FEEDRATE_Z
 
     // Kossel Pro
     #define TOUCH_PROBE_DEPLOY_1_X -110.00 // Move left
     #define TOUCH_PROBE_DEPLOY_1_Y 0.00
     #define TOUCH_PROBE_DEPLOY_1_Z 100.0
-    #define TOUCH_PROBE_DEPLOY_1_FEEDRATE (200*60/2) // wish we could do HOMING_FEEDRATE[X_AXIS]/2
+    #define TOUCH_PROBE_DEPLOY_1_FEEDRATE (HOMING_FEEDRATE_X/2)
     #define TOUCH_PROBE_DEPLOY_2_X -110.00 // Move outward to position deploy pin to the left of the arm
     #define TOUCH_PROBE_DEPLOY_2_Y -125.00
     #define TOUCH_PROBE_DEPLOY_2_Z 100.0
-    #define TOUCH_PROBE_DEPLOY_2_FEEDRATE (200*60/2)
+    #define TOUCH_PROBE_DEPLOY_2_FEEDRATE (HOMING_FEEDRATE_X/2)
     #define TOUCH_PROBE_DEPLOY_3_X 45.00 // Move right to trigger deploy pin
     #define TOUCH_PROBE_DEPLOY_3_Y -125.00
     #define TOUCH_PROBE_DEPLOY_3_Z 100.0
-    #define TOUCH_PROBE_DEPLOY_3_FEEDRATE (200*60/2)
+    #define TOUCH_PROBE_DEPLOY_3_FEEDRATE (HOMING_FEEDRATE_X/2)
 
     #define TOUCH_PROBE_RETRACT_1_X 36.00 // Line up with bed retaining clip
     #define TOUCH_PROBE_RETRACT_1_Y -122.00
     #define TOUCH_PROBE_RETRACT_1_Z 100.0
-    #define TOUCH_PROBE_RETRACT_1_FEEDRATE (200*60/2)
+    #define TOUCH_PROBE_RETRACT_1_FEEDRATE (HOMING_FEEDRATE_X/2)
     #define TOUCH_PROBE_RETRACT_2_X 36.00 // move down to retract probe
     #define TOUCH_PROBE_RETRACT_2_Y -122.00
     #define TOUCH_PROBE_RETRACT_2_Z 25.0
-    #define TOUCH_PROBE_RETRACT_2_FEEDRATE (200*60/2)
+    #define TOUCH_PROBE_RETRACT_2_FEEDRATE (HOMING_FEEDRATE_X/2)
     #define TOUCH_PROBE_RETRACT_3_X 0.0  // return to 0,0,100
     #define TOUCH_PROBE_RETRACT_3_Y 0.0
     #define TOUCH_PROBE_RETRACT_3_Z 100.0
-    #define TOUCH_PROBE_RETRACT_3_FEEDRATE (200*60/2)
+    #define TOUCH_PROBE_RETRACT_3_FEEDRATE (HOMING_FEEDRATE_X/2)
 
   #else  // not AUTO_BED_LEVELING_GRID
     // with no grid, just probe 3 arbitrary points.  A simple cross-product
@@ -539,20 +559,6 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
   #endif // Z_SAFE_HOMING
 
 #endif // ENABLE_AUTO_BED_LEVELING
-
-// The position of the homing switches
-#define MANUAL_HOME_POSITIONS  // If defined, MANUAL_*_HOME_POS below will be used
-#define BED_CENTER_AT_0_0  // If defined, the center of the bed is at (X=0, Y=0)
-
-//Manual homing switch locations:
-// For deltabots this means top and center of the Cartesian print volume.
-#define MANUAL_X_HOME_POS 0
-#define MANUAL_Y_HOME_POS 0
-#define MANUAL_Z_HOME_POS 300  // For delta: Distance between nozzle and print surface after homing.
-
-//// MOVEMENT SETTINGS
-#define NUM_AXIS 4 // The axis order in all axis related arrays is X, Y, Z, E
-#define HOMING_FEEDRATE {200*60, 200*60, 200*60, 0}  // set the homing speeds (mm/min)
 
 // default settings
 
