@@ -1180,7 +1180,7 @@ static void retract_z_probe() {
     }
     #else // Push up the Z probe by moving the end effector, no servo needed.
 
-    // @todo ex-nerd: What to do with this block?
+    // Put the end effector high enough up that it won't crash the head when moving to TOUCH_PROBE_RETRACT_1_*
     // @todo: check that we're not already too high before moving up
     feedrate = homing_feedrate[X_AXIS];
     destination[Z_AXIS] = current_position[Z_AXIS] + 100;

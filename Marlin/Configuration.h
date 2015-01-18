@@ -479,14 +479,14 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
     //#define TOUCH_PROBE_RETRACT_3_FEEDRATE HOMING_FEEDRATE_Z
 
     // Kossel Pro
-    #define TOUCH_PROBE_DEPLOY_1_X -110.00 // Move left
+    #define TOUCH_PROBE_DEPLOY_1_X -105.00 // Move left but not quite so far that we'll bump the belt
     #define TOUCH_PROBE_DEPLOY_1_Y 0.00
     #define TOUCH_PROBE_DEPLOY_1_Z 100.0
-    #define TOUCH_PROBE_DEPLOY_1_FEEDRATE (HOMING_FEEDRATE_X/2)
+    #define TOUCH_PROBE_DEPLOY_1_FEEDRATE HOMING_FEEDRATE_X
     #define TOUCH_PROBE_DEPLOY_2_X -110.00 // Move outward to position deploy pin to the left of the arm
     #define TOUCH_PROBE_DEPLOY_2_Y -125.00
     #define TOUCH_PROBE_DEPLOY_2_Z 100.0
-    #define TOUCH_PROBE_DEPLOY_2_FEEDRATE (HOMING_FEEDRATE_X/2)
+    #define TOUCH_PROBE_DEPLOY_2_FEEDRATE HOMING_FEEDRATE_X
     #define TOUCH_PROBE_DEPLOY_3_X 45.00 // Move right to trigger deploy pin
     #define TOUCH_PROBE_DEPLOY_3_Y -125.00
     #define TOUCH_PROBE_DEPLOY_3_Z 100.0
@@ -494,16 +494,16 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 
     #define TOUCH_PROBE_RETRACT_1_X 36.00 // Line up with bed retaining clip
     #define TOUCH_PROBE_RETRACT_1_Y -122.00
-    #define TOUCH_PROBE_RETRACT_1_Z 100.0
-    #define TOUCH_PROBE_RETRACT_1_FEEDRATE (HOMING_FEEDRATE_X/2)
+    #define TOUCH_PROBE_RETRACT_1_Z 75.0
+    #define TOUCH_PROBE_RETRACT_1_FEEDRATE HOMING_FEEDRATE_X
     #define TOUCH_PROBE_RETRACT_2_X 36.00 // move down to retract probe
     #define TOUCH_PROBE_RETRACT_2_Y -122.00
     #define TOUCH_PROBE_RETRACT_2_Z 25.0
-    #define TOUCH_PROBE_RETRACT_2_FEEDRATE (HOMING_FEEDRATE_X/2)
+    #define TOUCH_PROBE_RETRACT_2_FEEDRATE (HOMING_FEEDRATE_Z/2)
     #define TOUCH_PROBE_RETRACT_3_X 0.0  // return to 0,0,100
     #define TOUCH_PROBE_RETRACT_3_Y 0.0
     #define TOUCH_PROBE_RETRACT_3_Z 100.0
-    #define TOUCH_PROBE_RETRACT_3_FEEDRATE (HOMING_FEEDRATE_X/2)
+    #define TOUCH_PROBE_RETRACT_3_FEEDRATE HOMING_FEEDRATE_Z
 
   #else  // not AUTO_BED_LEVELING_GRID
     // with no grid, just probe 3 arbitrary points.  A simple cross-product
