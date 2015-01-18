@@ -1181,8 +1181,9 @@ static void retract_z_probe() {
     #else // Push up the Z probe by moving the end effector, no servo needed.
 
     // @todo ex-nerd: What to do with this block?
+    // @todo: check that we're not already too high before moving up
     feedrate = homing_feedrate[X_AXIS];
-    destination[Z_AXIS] = current_position[Z_AXIS] + 20;
+    destination[Z_AXIS] = current_position[Z_AXIS] + 100;
     prepare_move_raw();
 
     #if defined(TOUCH_PROBE_RETRACT_1_X) && defined(TOUCH_PROBE_RETRACT_1_Y) && defined(TOUCH_PROBE_RETRACT_1_Z)
@@ -1889,6 +1890,7 @@ void process_commands()
                 float measured_z = probe_pt(xProbe, yProbe, z_before);
 
                 #ifdef NONLINEAR_BED_LEVELING
+                // @todo: take x and y offset into account
                 bed_level[xCount][yCount] = measured_z + z_offset;
                 #endif //NONLINEAR_BED_LEVELING
 

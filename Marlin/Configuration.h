@@ -459,28 +459,28 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
     //#define TOUCH_PROBE_RETRACT_3_FEEDRATE  (200*60) // HOMING_FEEDRATE[Z_AXIS]
 
     // Kossel Pro
-    #define TOUCH_PROBE_DEPLOY_1_X -110.00 // Move toward the X vertex so we can hook the probe deploy pin on an arm
+    #define TOUCH_PROBE_DEPLOY_1_X -110.00 // Move left
     #define TOUCH_PROBE_DEPLOY_1_Y 0.00
     #define TOUCH_PROBE_DEPLOY_1_Z 100.0
     #define TOUCH_PROBE_DEPLOY_1_FEEDRATE (200*60/2) // wish we could do HOMING_FEEDRATE[X_AXIS]/2
-    #define TOUCH_PROBE_DEPLOY_2_X -110.00 // Move outward so the deploy pin is pulled by the arm and the probe is deployed
+    #define TOUCH_PROBE_DEPLOY_2_X -110.00 // Move outward to position deploy pin to the left of the arm
     #define TOUCH_PROBE_DEPLOY_2_Y -125.00
     #define TOUCH_PROBE_DEPLOY_2_Z 100.0
     #define TOUCH_PROBE_DEPLOY_2_FEEDRATE (200*60/2)
-    #define TOUCH_PROBE_DEPLOY_3_X 45.00 // Not actually sure what this does...
+    #define TOUCH_PROBE_DEPLOY_3_X 45.00 // Move right to trigger deploy pin
     #define TOUCH_PROBE_DEPLOY_3_Y -125.00
     #define TOUCH_PROBE_DEPLOY_3_Z 100.0
     #define TOUCH_PROBE_DEPLOY_3_FEEDRATE (200*60/2)
 
-    #define TOUCH_PROBE_RETRACT_1_X 36.00
+    #define TOUCH_PROBE_RETRACT_1_X 36.00 // Line up with bed retaining clip
     #define TOUCH_PROBE_RETRACT_1_Y -122.00
-    #define TOUCH_PROBE_RETRACT_1_Z50.0
+    #define TOUCH_PROBE_RETRACT_1_Z 100.0
     #define TOUCH_PROBE_RETRACT_1_FEEDRATE (200*60/2)
-    #define TOUCH_PROBE_RETRACT_2_X 36.00
+    #define TOUCH_PROBE_RETRACT_2_X 36.00 // move down to retract probe
     #define TOUCH_PROBE_RETRACT_2_Y -122.00
-    #define TOUCH_PROBE_RETRACT_2_Z 18.0
+    #define TOUCH_PROBE_RETRACT_2_Z 25.0
     #define TOUCH_PROBE_RETRACT_2_FEEDRATE (200*60/2)
-    #define TOUCH_PROBE_RETRACT_3_X 0.0
+    #define TOUCH_PROBE_RETRACT_3_X 0.0  // return to 0,0,100
     #define TOUCH_PROBE_RETRACT_3_Y 0.0
     #define TOUCH_PROBE_RETRACT_3_Z 100.0
     #define TOUCH_PROBE_RETRACT_3_FEEDRATE (200*60/2)
