@@ -9,3 +9,6 @@ applet/
 atlassian-ide-plugin.xml
 *.iml
 *.idea
+
+# Mac Stuff
+.DS_Store
