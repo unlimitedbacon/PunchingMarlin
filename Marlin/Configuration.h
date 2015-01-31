@@ -524,10 +524,13 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 
   #endif // AUTO_BED_LEVELING_GRID
 
-  // these are the offsets to the probe relative to the extruder tip (Hotend - Probe)
-  #define X_PROBE_OFFSET_FROM_EXTRUDER -22.919
-  #define Y_PROBE_OFFSET_FROM_EXTRUDER -6.304
-  #define Z_PROBE_OFFSET_FROM_EXTRUDER -17.6  // Increase this if the first layer is too thin (remember: it's a negative number so increase means closer to zero).
+  // These are the offsets to the probe relative to the extruder tip (Hotend - Probe)
+  // X and Y offsets must be integers
+  #define X_PROBE_OFFSET_FROM_EXTRUDER -23 // KosselPro actual: -22.919
+  #define Y_PROBE_OFFSET_FROM_EXTRUDER -6 // KosselPro actual: -6.304
+  // Kossel Pro note: The correct value is likely -17.45 but I'd rather err on the side of
+  // not giving someone a head crash. Use something like G29 Z-0.2 to adjust as needed.
+  #define Z_PROBE_OFFSET_FROM_EXTRUDER -17.25  // Increase this if the first layer is too thin (remember: it's a negative number so increase means closer to zero).
 
   #define Z_RAISE_BEFORE_HOMING 4       // (in mm) Raise Z before homing (G28) for Probe Clearance.
                                         // Be sure you have this distance over your Z_MAX_POS in case
