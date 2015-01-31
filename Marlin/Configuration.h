@@ -197,10 +197,16 @@
   #define PID_dT ((OVERSAMPLENR * 10.0)/(F_CPU / 64.0 / 256.0)) //sampling period of the temperature routine
 
 // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
+
 // Ultimaker
-    #define  DEFAULT_Kp 22.2
-    #define  DEFAULT_Ki 1.08
-    #define  DEFAULT_Kd 114
+//    #define  DEFAULT_Kp 22.2
+//    #define  DEFAULT_Ki 1.08
+//    #define  DEFAULT_Kd 114
+
+// Kossel Pro
+    #define  DEFAULT_Kp 16.3
+    #define  DEFAULT_Ki 2.69
+    #define  DEFAULT_Kd 24.94
 
 // MakerGear
 //    #define  DEFAULT_Kp 7.0
@@ -234,11 +240,11 @@
 #define MAX_BED_POWER 255 // limits duty cycle to bed; 255=full current
 
 #ifdef PIDTEMPBED
-//120v 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
-//@todo document physical description for where ttstam got these numbers
-    #define  DEFAULT_bedKp 99.37
-    #define  DEFAULT_bedKi 6.71
-    #define  DEFAULT_bedKd 367.96
+//Kossel Pro heated bed plate with borosilicate glass
+//from pidautotune (M303 E-1 S60 C8)
+    #define  DEFAULT_bedKp 289.37
+    #define  DEFAULT_bedKi 50.74
+    #define  DEFAULT_bedKd 412.85
 
 //120v 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
 //from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
