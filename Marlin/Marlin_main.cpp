@@ -1817,7 +1817,7 @@ void process_commands()
 
           #ifdef NONLINEAR_BED_LEVELING
             reset_bed_level();
-          #else //NONLINEAR_BED_LEVELING
+          #else //not defined NONLINEAR_BED_LEVELING
             vector_3 uncorrected_position = plan_get_position();
             //uncorrected_position.debug("position durring G29");
             current_position[X_AXIS] = uncorrected_position.x;
