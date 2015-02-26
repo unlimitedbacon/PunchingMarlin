@@ -550,15 +550,17 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
   //#define PROBE_SERVO_DEACTIVATION_DELAY 300
 
 
-  //If you have enabled the Bed Auto Leveling and are using the same Z Probe for Z Homing,
-  //it is highly recommended you let this Z_SAFE_HOMING enabled!!!
-
-  #define Z_SAFE_HOMING   // This feature is meant to avoid Z homing with probe outside the bed area.
-                          // When defined, it will:
-                          // - Allow Z homing only after X and Y homing AND stepper drivers still enabled
-                          // - If stepper drivers timeout, it will need X and Y homing again before Z homing
-                          // - Position the probe in a defined XY point before Z Homing when homing all axis (G28)
-                          // - Block Z homing only when the probe is outside bed area.
+  // PJR - This is not applicable for deltabots and can actually actually cause problems if enabled.
+  #ifndef DELTA
+    //If you have enabled the Bed Auto Leveling and are using the same Z Probe for Z Homing,
+    //it is highly recommended you let this Z_SAFE_HOMING enabled!!!
+    #define Z_SAFE_HOMING   // This feature is meant to avoid Z homing with probe outside the bed area.
+                            // When defined, it will:
+                            // - Allow Z homing only after X and Y homing AND stepper drivers still enabled
+                            // - If stepper drivers timeout, it will need X and Y homing again before Z homing
+                            // - Position the probe in a defined XY point before Z Homing when homing all axis (G28)
+                            // - Block Z homing only when the probe is outside bed area.
+  #endif
 
   #ifdef Z_SAFE_HOMING
 
