@@ -1948,7 +1948,6 @@ void process_commands()
 
 
 #endif // AUTO_BED_LEVELING_GRID
-            do_blocking_move_to(MANUAL_X_HOME_POS, MANUAL_Y_HOME_POS, Z_RAISE_AFTER_PROBING);
             st_synchronize();
 
           #ifndef SERVO_ENDSTOPS
