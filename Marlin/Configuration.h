@@ -504,7 +504,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
     #define TOUCH_PROBE_RETRACT_1_FEEDRATE HOMING_FEEDRATE_X
     #define TOUCH_PROBE_RETRACT_2_X 36.00 // move down to retract probe
     #define TOUCH_PROBE_RETRACT_2_Y -122.00
-    #define TOUCH_PROBE_RETRACT_2_Z 25.0
+    #define TOUCH_PROBE_RETRACT_2_Z 5.0
     #define TOUCH_PROBE_RETRACT_2_FEEDRATE (HOMING_FEEDRATE_Z/4)
     #define TOUCH_PROBE_RETRACT_3_X 0.0  // return to 0,0,100
     #define TOUCH_PROBE_RETRACT_3_Y 0.0
