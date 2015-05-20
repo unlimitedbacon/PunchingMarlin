@@ -47,6 +47,7 @@
 #include "language.h"
 #include "pins_arduino.h"
 #include "math.h"
+#include "pugilism.h"
 
 #ifdef BLINKM
 #include "BlinkM.h"
@@ -584,6 +585,7 @@ void setup()
   st_init();    // Initialize stepper, this enables interrupts!
   setup_photpin();
   servo_init();
+  punch_init();
   
 
   lcd_init();
@@ -2006,6 +2008,13 @@ void process_commands()
         break;
 #endif // Z_PROBE_SLED
 #endif // ENABLE_AUTO_BED_LEVELING
+    case 42: // G42
+      if(code_seen('F')) {
+        punch(code_value());
+      } else {
+        punch(50);
+      }
+    break;
     case 90: // G90
       relative_mode = false;
       break;

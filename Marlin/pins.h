@@ -2122,6 +2122,10 @@ DaveX plan for Teensylu/printrboard-type pinouts (ref teensylu & sprinter) for a
 #define ALARM_PIN          -1
 #define SDCARDDETECT       12
 
+#define PUNCH_STEP_PIN     26 // OC1B
+#define PUNCH_DIR_PIN      27 // OC1C
+#define PUNCH_ENABLE_PIN   25 // OC1A
+
 #ifndef SDSUPPORT
 // these pins are defined in the SD library if building with SD support
   #define SCK_PIN          21
