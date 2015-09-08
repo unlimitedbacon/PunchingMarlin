@@ -2012,8 +2012,23 @@ void process_commands()
       if(code_seen('F')) {
         punch(code_value());
       } else {
-        punch(50);
+        punch(300);
       }
+    break;
+    case 43: // G43
+      int punchCount;
+      float punchSpeed;
+      if (code_seen('C')) {
+        punchCount = (int)code_value();
+      } else {
+        punchCount = 3;
+      }
+      if (code_seen('F')) {
+        punchSpeed = code_value();
+      } else {
+        punchSpeed = 300;
+      }
+      punchAndLaser(punchCount,punchSpeed);
     break;
     case 90: // G90
       relative_mode = false;
@@ -3946,6 +3961,9 @@ case 404:  //M404 Enter the nominal filament width (3mm, 1.75mm ) N<3.0> or disp
       microstep_readings();
       #endif
     }
+    break;
+    case 809: // M809
+      readPhotoCell();
     break;
     case 999: // M999: Restart after being stopped
       Stopped = false;

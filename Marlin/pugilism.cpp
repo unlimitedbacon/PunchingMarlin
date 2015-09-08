@@ -1,5 +1,5 @@
 /*
-  music.cpp - Pugilism functions
+  pugilismc.cpp - Pugilism functions
   Part of Marlin
 
   Copyright (c) 2009-2011 Simen Svale Skogsrud
@@ -19,6 +19,8 @@
 */
 
 #include "Configuration.h"
+
+#define LIGHT_THRESHOLD 150
 
 void punch_init()
 {
@@ -57,4 +59,30 @@ void punch(float speed)
   }
   // Disable driver
   digitalWrite(PUNCH_ENABLE_PIN, HIGH);
+}
+
+void readPhotoCell()
+{
+  int sensorValue = analogRead(TEMP_1_PIN); // Spare thermistor pin on Brainwave
+  SERIAL_ECHOLN(sensorValue);
+}
+
+// Punch repeatedly until object is ejected, or give up after a while and pause printing
+void punchAndLaser(int punchCount, float speed)
+{
+  int x = 0;
+  bool bedClear = false;
+  while (x < punchCount and not bedClear) {
+    punch(speed);
+    x++;
+    if (analogRead(TEMP_1_PIN) < LIGHT_THRESHOLD) {
+      bedClear = true;
+    }
+  }
+  if (bedClear) {
+    SERIAL_ECHOLN("Success!");
+  } else {
+    SERIAL_ECHOLN("Failure :(");
+    Stop();
+  }
 }

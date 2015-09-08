@@ -1,5 +1,5 @@
 /*
-  punch.h - Pugilism functions
+  pugilism.h - Pugilism functions
   Part of Marlin
 
   Copyright (c) 2009-2011 Simen Svale Skogsrud
@@ -25,6 +25,10 @@
 void punch_init();
 // Activate object ejection mechanism
 void punch(float speed);
+// Read value from laser sensor
+void readPhotoCell();
+// Punch repeatedly until object is ejected, or give up after a while and pause printing
+void punchAndLaser(int punchCount, float speed);
 
 #endif
 
